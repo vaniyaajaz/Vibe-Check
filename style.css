@@ -331,8 +331,9 @@ img {
 }
 
 .card-left-line {
-    margin-top: 15px;
-    margin-left: 6dvw;
+    position: absolute;
+    top: 20%;
+    left: 5%;
     height: 45px;
     width: 5px;
     background-color: white;
@@ -340,8 +341,9 @@ img {
 }
 
 .card-left-triangle {
-    margin-top: 5%;
-    position: relative;
+    position: absolute;
+    top: 25%;
+    left: 5.5%;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
@@ -350,18 +352,20 @@ img {
 }
 
 .card-mid-triangle {
-    margin-top: 5%;
+    position: absolute;
+    top: 20%;
+    left: 45%;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     border-left: 30px solid white;
-    margin-left: 29%;
 }
 
 .card-right-triangle {
-    margin-top: 5%;
-    margin-left: 29%;
+    position: absolute;
+    top: 25%;
+    right: 5.5%;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
@@ -370,8 +374,9 @@ img {
 }
 
 .card-right-line {
-    margin-top: 15px;
-    margin-left: 0px;
+    position: absolute;
+    top: 20%;
+    right: 5%;
     height: 45px;
     width: 5px;
     background-color: white;
@@ -379,8 +384,9 @@ img {
 }
 
 .card-mid-triangle-clicked {
-    margin-top: 15px;
-    margin-left: 29%;
+    position: absolute;
+    top: 20%;
+    left: 45%;
     height: 45px;
     width: 15px;
     background-color: transparent;

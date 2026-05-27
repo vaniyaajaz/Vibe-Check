@@ -23,7 +23,7 @@ document.addEventListener('click', (event) => {
 })
 
 function RgbtoRgba(rgb) {
-    return rgb.substring(0, rgb.length - 1) + ", 0.7)";
+    return rgb.substring(0, rgb.length - 1) + ", 0.7)"
 }
 
 const volumeButton = document.createElement("button")
@@ -45,6 +45,11 @@ volumeText.textContent = "volume"
 sidebar.appendChild(volumeText)
 
 volumeRange.value = 100
+
+volumeRange.addEventListener("input", () => {
+    volume = volumeRange.value()
+    player.setVolume(volume)
+})
 
 let complementaryColor = sessionStorage.getItem("color")
 let primaryColor = sessionStorage.getItem("primary")
@@ -123,6 +128,12 @@ const playlistsMap = {
     "vintage": "PLAjno9mqkmKhypquzZzXBDrgM9CULhmf6"
 }
 
+const playlistLink = document.createElement("a")
+playlistLink.textContent = folder + " playlist"
+playlistLink.href = "https://www.youtube.com/playlist?list=" + playlistsMap[folder]
+sidebar.appendChild(playlistLink)
+
+
 var tag = document.createElement('script')
 tag.src = "https://www.youtube.com/iframe_api"
 var firstScriptTag = document.getElementsByTagName('script')[0]
@@ -144,10 +155,40 @@ function onYouTubeIframeAPIReady() {
         },
         events: {
             'onReady': onPlayerReady,
-            'onError': onPlayerError
+            'onError': onPlayerError,
+            'onStateChange': onPlayerStateChange
         }
     })
 }
+
+let isLoopActive = false
+
+const loopButton = document.createElement("button")
+loopButton.id = "loopButton"
+sidebar.appendChild(loopButton)
+
+loopButton.addEventListener('click', function () {
+    isLoopActive = !isLoopActive
+    this.classList.toggle('active', isLoopActive)
+});
+
+function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED && isLoopActive) {
+        player.seekTo(0)
+        player.playVideo()
+    }
+}
+
+const shuffleButton = document.createElement("button")
+shuffleButton.id = "shuffleButton"
+sidebar.appendChild(shuffleButton)
+
+shuffleButton.addEventListener('click', () => {
+    if (isPlayerReady && player) {
+        player.setShuffle(true)
+        player.playVideoAt(0)
+    }
+})
 
 function onPlayerError(event) {
     console.warn(`⚠️ Track error encountered (Code: ${event.data}). Attempting to auto-skip...`)
@@ -192,7 +233,6 @@ midTriangle.addEventListener("click", () => {
     if (isPlayerReady && player) {
         if (midTriangle.className === "card-mid-triangle") {
             player.playVideo()
-            isPaused = false
             midTriangle.className = "card-mid-triangle-clicked"
             setInterval(() => {
                 if (isPaused) return
@@ -236,9 +276,4 @@ leftTriangle.addEventListener("click", () => {
     if (isPlayerReady && player) {
         player.previousVideo()
     }
-})
-
-volumeRange.addEventListener("input", () => {
-    volume = volumeRange.value
-    player.setVolume(volume)
 })

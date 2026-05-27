@@ -192,6 +192,7 @@ midTriangle.addEventListener("click", () => {
     if (isPlayerReady && player) {
         if (midTriangle.className === "card-mid-triangle") {
             player.playVideo()
+            isPaused = false
             midTriangle.className = "card-mid-triangle-clicked"
             setInterval(() => {
                 if (isPaused) return

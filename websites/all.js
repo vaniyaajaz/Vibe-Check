@@ -46,11 +46,6 @@ sidebar.appendChild(volumeText)
 
 volumeRange.value = 100
 
-volumeRange.addEventListener("input", () => {
-    volume = volumeRange.value()
-    player.setVolume(volume)
-})
-
 let complementaryColor = sessionStorage.getItem("color")
 let primaryColor = sessionStorage.getItem("primary")
 let GivenTitle = sessionStorage.getItem("title")
@@ -240,4 +235,9 @@ leftTriangle.addEventListener("click", () => {
     if (isPlayerReady && player) {
         player.previousVideo()
     }
+})
+
+volumeRange.addEventListener("input", () => {
+    volume = volumeRange.value
+    player.setVolume(volume)
 })

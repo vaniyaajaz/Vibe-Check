@@ -18,7 +18,7 @@ html {
     pointer-events: auto;
     top: 0%;
     right: 0%;
-    width: 20dvw;
+    width: 75px;
     height: 100dvh;
     background-color: var(--sidebar-color);
     backdrop-filter: blur(10px);
@@ -33,7 +33,7 @@ html {
     position: fixed;
     top: 0%;
     right: 0%;
-    width: 20dvw;
+    width: 75px;
     height: 100dvh;
     background-color: var(--sidebar-color);
     backdrop-filter: blur(10px);
@@ -222,6 +222,7 @@ img {
 }
 
 .images {
+    pointer-events: none;
     margin-top: 10px;
     height: fit-content;
     width: 100%;
@@ -392,6 +393,117 @@ img {
     background-color: transparent;
     border-right: 10px solid white;
     border-left: 10px solid white
+}
+
+.volume #small {
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 0px;
+    position: fixed;
+    top: 5%;
+    left: 40%;
+    border-right: 5px solid white;
+    border-left: 5px solid white;
+    transition: height 0.5s linear, top 0.5s linear;
+}
+
+.volume #smallup {
+    height: 25px;
+    width: 20px;
+    background-color: transparent;
+    border: 0px;
+    position: fixed;
+    top: 4.8%;
+    left: 40%;
+    border-right: 5px solid white;
+    border-left: 5px solid white;
+    transition: height 0.5s linear, top 0.5s linear;
+}
+
+.volume #big {
+    height: 30px;
+    width: 20px;
+    background-color: transparent;
+    border: 0px;
+    position: fixed;
+    top: 4.3%;
+    left: 22%;
+    border-right: 5px solid white;
+    border-left: 5px solid white;
+    transition: height 0.5s linear, top 0.5s linear;
+}
+
+.volume #bigup {
+    height: 35px;
+    width: 20px;
+    background-color: transparent;
+    border: 0px;
+    position: fixed;
+    top: 4.1%;
+    left: 22%;
+    border-right: 5px solid white;
+    border-left: 5px solid white;
+    transition: height 0.5s linear, top 0.5s linear;
+}
+
+.volume {
+    background-color: transparent;
+    border: 0px;
+}
+
+input[type="range"] {
+    touch-action: none;
+    position: fixed;
+    top: 10%;
+    left: 3%;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 85%;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: white;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+input[type="range"]::-moz-range-track {
+    background: white;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -3px;
+    background-color: var(--primary-color);
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+    border: none;
+    background-color: var(--primary-color);
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+}
+
+#volumeRange {
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    color: white;
+    font-weight: 500;
 }
 
 

@@ -26,6 +26,31 @@ function RgbtoRgba(rgb) {
     return rgb.substring(0, rgb.length - 1) + ", 0.7)";
 }
 
+const volumeButton = document.createElement("button")
+volumeButton.className = "volume"
+const small = document.createElement("div")
+small.id = "small"
+const big = document.createElement("div")
+big.id = "big"
+volumeButton.appendChild(small)
+volumeButton.appendChild(big)
+sidebar.appendChild(volumeButton)
+
+const volumeRange = document.createElement("input")
+volumeRange.type = "range"
+sidebar.appendChild(volumeRange)
+const volumeText = document.createElement("p")
+volumeText.id = "volumeRange"
+volumeText.textContent = "volume"
+sidebar.appendChild(volumeText)
+
+volumeRange.value = 100
+
+volumeRange.addEventListener("input", () => {
+    volume = volumeRange.value()
+    player.setVolume(volume)
+})
+
 let complementaryColor = sessionStorage.getItem("color")
 let primaryColor = sessionStorage.getItem("primary")
 let GivenTitle = sessionStorage.getItem("title")
@@ -166,13 +191,28 @@ playbar.appendChild(midTriangle)
 playbar.appendChild(rightTriangle)
 playbar.appendChild(rightLine)
 
+isPaused = false
+
 midTriangle.addEventListener("click", () => {
     if (isPlayerReady && player) {
         if (midTriangle.className === "card-mid-triangle") {
             player.playVideo()
             midTriangle.className = "card-mid-triangle-clicked"
+            setInterval(() => {
+                if (isPaused) return
+                if (small.id === "small") {
+                    small.id = "smallup"
+                    big.id = "big"
+                } else {
+                    small.id = "small"
+                    big.id = "bigup"
+                }
+            }, 500)
         } else {
             player.pauseVideo()
+            isPaused = true
+            small.id = "small"
+            big.id = "big"
             midTriangle.className = "card-mid-triangle"
         }
     }

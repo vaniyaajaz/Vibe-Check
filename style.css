@@ -506,6 +506,41 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 500;
 }
 
+a {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 400;
+    position: fixed;
+    top: 18%;
+    left: 8%;
+}
+
+#loopButton {
+    position: fixed;
+    top: 22%;
+    left: 20%;
+    height: 40px;
+    width: 40px;
+    background-image: url("loop.png");
+    background-color: transparent;
+    background-size: contain;
+    border: 0px;
+    background-repeat: no-repeat;
+}
+
+#shuffleButton {
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 28%;
+    left: 20%;
+    background-image: url("shuffle.png");
+    background-color: transparent;
+    background-size: contain;
+    border: 0px;
+    background-repeat: no-repeat;
+}
+
 
 @media screen and (min-width: 769px) {
     .container-back-button {

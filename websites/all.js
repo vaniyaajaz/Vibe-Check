@@ -131,7 +131,10 @@ const playlistsMap = {
 const playlistLink = document.createElement("a")
 playlistLink.textContent = folder + " playlist"
 playlistLink.href = "https://www.youtube.com/playlist?list=" + playlistsMap[folder]
+playlistLink.target = "_blank"
+playlistLink.rel = "noopener"
 sidebar.appendChild(playlistLink)
+
 
 
 var tag = document.createElement('script')

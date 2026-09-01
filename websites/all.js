@@ -114,7 +114,7 @@ startSlideshow()
 
 
 const playlistsMap = {
-    "ballet": "PLAjno9mqkmKhFAvcw3aheIpkIVWPz7IGE",
+    "soft": "PLAjno9mqkmKhFAvcw3aheIpkIVWPz7IGE",
     "blush": "PLAjno9mqkmKhbsClIN6e9RpLDYKd9tTEI",
     "chill": "PLAjno9mqkmKiGF4P9RIQtZ-38ZXCKt9sS",
     "cozy": "PLAjno9mqkmKho_2A2hqwiH60gY9X-0FRT",

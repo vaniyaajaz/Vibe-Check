@@ -170,6 +170,11 @@ sidebar.appendChild(loopButton)
 loopButton.addEventListener('click', function () {
     isLoopActive = !isLoopActive
     this.classList.toggle('active', isLoopActive)
+    if (isLoopActive === true) {
+        loopButton.style.transform = "scale(1.1)"
+    } else {
+        loopButton.style.transform = "scale(1)"
+    }
 });
 
 function onPlayerStateChange(event) {
@@ -179,14 +184,25 @@ function onPlayerStateChange(event) {
     }
 }
 
+let isShuffleActive = false
+
 const shuffleButton = document.createElement("button")
 shuffleButton.id = "shuffleButton"
 sidebar.appendChild(shuffleButton)
 
 shuffleButton.addEventListener('click', () => {
     if (isPlayerReady && player) {
-        player.setShuffle(true)
-        player.playVideoAt(0)
+        if (isShuffleActive === false) {
+            player.setShuffle(true)
+            player.playVideoAt(0)
+            isShuffleActive = true
+            shuffleButton.style.transform = "scale(1.1)"
+        } else {
+            player.setShuffle(false)
+            player.playVideoAt(0)
+            isShuffleActive = false
+            shuffleButton.style.transform = "scale(1)"
+        }
     }
 })
 

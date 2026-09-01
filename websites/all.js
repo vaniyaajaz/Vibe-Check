@@ -46,8 +46,8 @@ sidebar.appendChild(volumeText)
 
 volumeRange.value = 100
 
-volumeRange.addEventListener("input", () => {
-    volume = volumeRange.value()
+volumeRange.addEventListener("input", (e) => {
+    volume = e.target.value
     player.setVolume(volume)
 })
 
@@ -227,14 +227,17 @@ playbar.appendChild(midTriangle)
 playbar.appendChild(rightTriangle)
 playbar.appendChild(rightLine)
 
+let animationInterval
 isPaused = false
 
 midTriangle.addEventListener("click", () => {
     if (isPlayerReady && player) {
-        if (midTriangle.className === "card-mid-triangle") {
+        if (!midTriangle.classList.contains("card-mid-triangle-clicked")) {
+            isPaused = false
             player.playVideo()
-            midTriangle.className = "card-mid-triangle-clicked"
-            setInterval(() => {
+            midTriangle.classList.remove("card-mid-triangle")
+            midTriangle.classList.add("card-mid-triangle-clicked")
+            animationInterval = setInterval(() => {
                 if (isPaused) return
                 if (small.id === "small") {
                     small.id = "smallup"
@@ -245,11 +248,13 @@ midTriangle.addEventListener("click", () => {
                 }
             }, 500)
         } else {
+            clearInterval(animationInterval)
             player.pauseVideo()
             isPaused = true
             small.id = "small"
             big.id = "big"
-            midTriangle.className = "card-mid-triangle"
+            midTriangle.classList.add("card-mid-triangle")
+            midTriangle.classList.remove("card-mid-triangle-clicked")
         }
     }
 })

@@ -118,7 +118,7 @@ const playlistsMap = {
     "blush": "PLAjno9mqkmKhbsClIN6e9RpLDYKd9tTEI",
     "chill": "PLAjno9mqkmKiGF4P9RIQtZ-38ZXCKt9sS",
     "cozy": "PLAjno9mqkmKho_2A2hqwiH60gY9X-0FRT",
-    "daydream": "PLAjno9mqkmKhUgDaJdBwJV5CrguHUwO_p",
+    "expensive": "PLAjno9mqkmKhUgDaJdBwJV5CrguHUwO_p",
     "dream": "PLAjno9mqkmKg4K9wT0Gv-Mn1xGE1_JJG9",
     "innocence": "PLAjno9mqkmKiohWhUaOCKbUw0-MK4s-J9",
     "rain": "PLAjno9mqkmKh3RE-AlVr-Zz2alAOuRh56",

@@ -121,7 +121,7 @@ const playlistsMap = {
     "daydream": "PLAjno9mqkmKhUgDaJdBwJV5CrguHUwO_p",
     "dream": "PLAjno9mqkmKg4K9wT0Gv-Mn1xGE1_JJG9",
     "innocence": "PLAjno9mqkmKiohWhUaOCKbUw0-MK4s-J9",
-    "mist": "PLAjno9mqkmKh3RE-AlVr-Zz2alAOuRh56",
+    "rain": "PLAjno9mqkmKh3RE-AlVr-Zz2alAOuRh56",
     "ocean": "PLAjno9mqkmKjPN-9R_WQcXI-8PnlbBI6K",
     "romance": "PLAjno9mqkmKjwXGe9NKgjEkan5pEEuTHX",
     "spring": "PLAjno9mqkmKiz_TN9izyLrkdvhrdYoyp4",
